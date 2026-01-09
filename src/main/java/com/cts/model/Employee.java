@@ -1,5 +1,10 @@
 package com.cts.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,15 +13,34 @@ public class Employee {
 
 	@Id
 	private String id;
-
+	
+	@NotBlank(message = "Name is required")
 	private String name;
+	
+	@NotBlank(message = "JobTitle is required")
 	private String jobTitle;
+	
+	@NotBlank(message = "Department is required")
 	private String department;
+	
+	@NotBlank(message = "Role is required")
 	private String role;
+	
+	@NotNull(message="salary is required")
+	@Positive(message="salary should be greater then 0")
 	private Double salary;
+	
+	@NotBlank(message = "Gender is required")
 	private String gender;
+	
+	@NotBlank(message = "Email is required")
+	@Email(message="Invalid format of email")
 	private String email;
+	
+	@NotBlank(message = "Address is required")
 	private String address;
+	
+	@NotBlank(message = "Mobile Number is required")
 	private String mobileNo;
 	public Employee() {
 		

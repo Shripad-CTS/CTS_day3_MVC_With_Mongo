@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cts.exception.EmployeeNotFoundException;
 import com.cts.model.Employee;
 import com.cts.repository.EmployeeRepository;
 
@@ -26,7 +27,7 @@ public class EmployeeService {
 	}
 
 	public Employee getEmployee(String id) {
-		return employeeRepository.findById(id).orElse(null);
+		return employeeRepository.findById(id).orElseThrow(()-> new EmployeeNotFoundException("Employee not found with This ID"+id));
 	}
 
 	public void deleteEmployee(String id) {
