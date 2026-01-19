@@ -1,0 +1,36 @@
+<div class="home-container">
+    <h2>{{title}}</h2>
+
+    <button ng-click="change()">
+        Click Me
+    </button>
+    
+    <button ng-click="loadEmployee()">load the data from backend</button>
+    
+    <table border="1">
+    	<tr>
+    	    <th>name</th>
+    <th>jobTitle</th>
+    <th>department</th>
+    <th>role</th>
+    <th>salary</th>
+    <th>gender</th>
+    <th>email</th>
+    <th>address</th>
+    <th>mobileNo</th>
+    	</tr>
+    	<tr ng-repeat="e in employees">
+    <td>{{e.name}}</td>
+    <td>{{e.jobTitle}}</td>
+    <td>{{e.department}}</td>
+    <td>{{e.role}}</td>
+    <td>{{e.salary}}</td>
+    <td>{{e.gender}}</td>
+    <td>{{e.email}}</td>
+    <td>{{e.address}}</td>
+    <td>{{e.mobileNo}}</td>
+    	
+    	</tr>
+    
+    </table>
+</div>
