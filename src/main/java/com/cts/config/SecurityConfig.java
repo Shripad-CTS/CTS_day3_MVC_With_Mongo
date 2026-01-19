@@ -5,7 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -20,15 +22,30 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.cts.service.MongoUserDetailsService;
+import com.cts.service.EmployeeUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final MongoUserDetailsService userDetailsService;
+	private final EmployeeUserDetailsService userDetailsService;
 
-    public SecurityConfig(MongoUserDetailsService userDetailsService) {
+	@Bean
+	public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+
+	    AuthenticationManagerBuilder builder =
+	            http.getSharedObject(AuthenticationManagerBuilder.class);
+
+	    builder
+	        .userDetailsService(userDetailsService)
+	        .passwordEncoder(passwordEncoder());
+
+	    return builder.build();
+	}
+
+
+
+    public SecurityConfig(EmployeeUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -46,7 +63,7 @@ public class SecurityConfig {
 
                 .requestMatchers(
                     new AntPathRequestMatcher("/api/employees/**", "GET")
-                ).hasAnyRole("USER", "ADMIN")
+                ).hasAnyRole("EMPLOYEE","MANAGER", "ADMIN")
 
                 .requestMatchers(
                     new AntPathRequestMatcher("/api/employees/**", "POST"),

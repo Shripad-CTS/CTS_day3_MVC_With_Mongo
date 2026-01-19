@@ -11,8 +11,6 @@ public class UserAccount {
     @Id
     private String id;
 
-    private String username;
-
     private String password; // BCrypt encrypted
 
     private String role; // USER, ADMIN
@@ -36,14 +34,6 @@ public class UserAccount {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -60,8 +50,8 @@ public class UserAccount {
 		this.role = role;
 	}
 
-	public UserAccount(String username, String password, String role) {
-        this.username = username;
+	public UserAccount(String email, String password, String role) {
+		this.email=email;
         this.password = password;
         this.role = role;
     }
