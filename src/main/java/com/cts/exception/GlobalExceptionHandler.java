@@ -1,26 +1,60 @@
 package com.cts.exception;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
-
+	Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 	@ExceptionHandler(EmployeeNotFoundException.class)
-	public String EmployeeExceptionHandler(EmployeeNotFoundException ex,Model model) {
-		model.addAttribute("errorTitle", "Employee not found");
-		model.addAttribute("errorMessage", ex.getMessage());
-		return "error";
+	public ResponseEntity<Map<String, Object>> EmployeeExceptionHandler(EmployeeNotFoundException ex) {
+			log.warn("Employee not found Exceprtion is triggered");
+		   Map<String, Object> response = new HashMap<>();
+	        response.put("timestamp", LocalDateTime.now());
+	        response.put("status", HttpStatus.NOT_FOUND.value());
+	        response.put("error", "Employee Not Found");
+	        response.put("message", ex.getMessage());
+	        return ResponseEntity
+	                .status(HttpStatus.NOT_FOUND)
+	                .body(response);
+	}
+	
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<Map<String, String>> handleValidationErrors(
+	        MethodArgumentNotValidException ex) {
+		log.warn("Validation Exceprtion is triggered");
+	    Map<String, String> errors = new HashMap<>();
+
+	    ex.getBindingResult()
+	      .getFieldErrors()
+	      .forEach(error ->
+	          errors.put(error.getField(), error.getDefaultMessage())
+	      );
+
+	    return ResponseEntity.badRequest().body(errors);
 	}
     @ExceptionHandler(Exception.class)
-    public String handleGenericException(
-            Exception ex,
-            Model model) {
+    public ResponseEntity<Map<String, Object>> handleGenericException(
+            Exception ex) {
+    	
+    	log.warn("Generic Exceprtion is triggered");
+    	  Map<String, Object> response = new HashMap<>();
+          response.put("timestamp", LocalDateTime.now());
+          response.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
+          response.put("error", "Internal Server Error");
+          response.put("message", "Something went wrong. Please try again later.");
 
-        model.addAttribute("errorTitle", "Something went wrong");
-        model.addAttribute("errorMessage", "Please try again later.");
-
-        return "error";
+          return ResponseEntity
+                  .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                  .body(response);
     }
 }

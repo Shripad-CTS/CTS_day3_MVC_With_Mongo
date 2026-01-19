@@ -17,15 +17,41 @@ public class Employee {
 	@NotBlank(message = "Name is required")
 	private String name;
 	
+	private String password;
+	private String mainRole;
+	
 	@NotBlank(message = "JobTitle is required")
 	private String jobTitle;
 	
 	@NotBlank(message = "Department is required")
 	private String department;
 	
+	public Employee(@NotBlank(message = "Name is required") String name, String password, String mainRole,
+			@NotBlank(message = "Email is required") @Email(message = "Invalid format of email") String email) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.mainRole = mainRole;
+		this.email = email;
+	}
 	@NotBlank(message = "Role is required")
 	private String role;
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getMainRole() {
+		return mainRole;
+	}
+
+	public void setMainRole(String mainRole) {
+		this.mainRole = mainRole;
+	}
 	@NotNull(message="salary is required")
 	@Positive(message="salary should be greater then 0")
 	private Double salary;

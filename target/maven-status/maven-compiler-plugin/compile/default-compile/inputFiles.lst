@@ -1,3 +1,4 @@
+/home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/config/CorsConfig.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/config/MongoConfig.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/controller/EmployeeController.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/exception/EmployeeNotFoundException.java

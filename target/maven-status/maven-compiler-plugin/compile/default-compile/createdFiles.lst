@@ -4,4 +4,5 @@ com/cts/model/Employee.class
 com/cts/controller/EmployeeController.class
 com/cts/config/MongoConfig.class
 com/cts/repository/EmployeeRepository.class
+com/cts/config/CorsConfig.class
 com/cts/exception/GlobalExceptionHandler.class
