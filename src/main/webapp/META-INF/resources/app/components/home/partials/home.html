@@ -1,36 +1,80 @@
-<div class="home-container">
-    <h2>{{title}}</h2>
+<div class="max-w-7xl mx-auto p-6">
 
-    <button ng-click="change()">
-        Click Me
-    </button>
-    
-    <button ng-click="loadEmployee()">load the data from backend</button>
-    
-    <table border="1">
-    	<tr>
-    	    <th>name</th>
-    <th>jobTitle</th>
-    <th>department</th>
-    <th>role</th>
-    <th>salary</th>
-    <th>gender</th>
-    <th>email</th>
-    <th>address</th>
-    <th>mobileNo</th>
-    	</tr>
-    	<tr ng-repeat="e in employees">
-    <td>{{e.name}}</td>
-    <td>{{e.jobTitle}}</td>
-    <td>{{e.department}}</td>
-    <td>{{e.role}}</td>
-    <td>{{e.salary}}</td>
-    <td>{{e.gender}}</td>
-    <td>{{e.email}}</td>
-    <td>{{e.address}}</td>
-    <td>{{e.mobileNo}}</td>
-    	
-    	</tr>
-    
-    </table>
+    <h2 class="text-2xl font-bold mb-4 text-gray-800">
+        {{title}}
+    </h2>
+
+    <div class="flex gap-4 mb-6">
+        <button
+            ng-click="change()"
+            class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+            Click Me
+        </button>
+
+        <button
+            ng-click="loadEmployee()"
+            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+            Load Employees
+        </button>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-300">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="th">Name</th>
+                    <th class="th">Job Title</th>
+                    <th class="th">Department</th>
+                    <th class="th">Role</th>
+                    <th class="th">Salary</th>
+                    <th class="th">Gender</th>
+                    <th class="th">Email</th>
+                    <th class="th">Address</th>
+                    <th class="th">Mobile</th>
+                    <th class="th">Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="e in employees" class="hover:bg-gray-50">
+                    <td class="td">{{e.name}}</td>
+                    <td class="td">{{e.jobTitle}}</td>
+                    <td class="td">{{e.department}}</td>
+                    <td class="td">{{e.role}}</td>
+                    <td class="td">{{e.salary}}</td>
+                    <td class="td">{{e.gender}}</td>
+                    <td class="td">{{e.email}}</td>
+                    <td class="td">{{e.address}}</td>
+                    <td class="td">{{e.mobileNo}}</td>
+
+                    <td class="td">
+                        <div class="flex gap-2">
+                            <button
+                                ng-click="viewEmployee(e.id)"
+                                class="px-2 py-1 bg-blue-500 text-white rounded text-sm">
+                                View
+                            </button>
+
+                            <button
+                                class="px-2 py-1 bg-yellow-500 text-white rounded text-sm">
+                                Update
+                            </button>
+
+                            <button
+                                ng-click="deleteEmployee(e.id)"
+                                class="px-2 py-1 bg-red-600 text-white rounded text-sm">
+                                Delete
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr ng-if="employees.length === 0">
+                    <td colspan="10" class="text-center py-4 text-gray-500">
+                        No employees found
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

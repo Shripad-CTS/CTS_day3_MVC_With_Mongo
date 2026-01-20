@@ -1,0 +1,86 @@
+<div class="max-w-2xl mx-auto p-8 bg-gray-50 rounded-xl shadow-lg"
+     ng-controller="AddEmployeeController">
+
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">
+        Add New Employee
+    </h2>
+
+    <form name="empForm" ng-submit="addEmployee()" novalidate class="space-y-5">
+
+        <!-- Name -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Name <span class="text-red-500">*</span></label>
+            <input type="text" ng-model="employee.name" required
+                   class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- Job Title & Department inline -->
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Job Title <span class="text-red-500">*</span></label>
+                <input type="text" ng-model="employee.jobTitle" required
+                       class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Department <span class="text-red-500">*</span></label>
+                <input type="text" ng-model="employee.department" required
+                       class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+        </div>
+
+        <!-- Role & Salary inline -->
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Role</label>
+                <input type="text" ng-model="employee.role"
+                       class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Salary</label>
+                <input type="number" ng-model="employee.salary" min="0"
+                       class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+        </div>
+
+        <!-- Gender & Mobile inline -->
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Gender</label>
+                <select ng-model="employee.gender"
+                        class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                    <option value="">Select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Mobile No</label>
+                <input type="text" ng-model="employee.mobileNo"
+                       class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Email <span class="text-red-500">*</span></label>
+            <input type="email" ng-model="employee.email" required
+                   class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- Address -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-1">Address</label>
+            <textarea ng-model="employee.address" rows="3"
+                      class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center pt-4">
+            <button type="submit" ng-disabled="empForm.$invalid"
+                    class="px-8 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 font-semibold transition duration-200">
+                Add Employee
+            </button>
+        </div>
+
+    </form>
+</div>

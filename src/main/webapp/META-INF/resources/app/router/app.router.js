@@ -1,0 +1,20 @@
+angular.module("myApp").config(function($stateProvider, $urlRouterProvider){
+
+	$urlRouterProvider.otherwise("/hello");
+  $stateProvider
+    .state("hello", {
+        url: "/hello",
+        templateUrl: "app/components/home/partials/home.html",
+        controller: "HomeController"
+    })
+	.state("add", {
+	        url: "/add",
+	        templateUrl: "app/components/addEmployee/partials/add-employee.html",
+	        controller: "AddEmployeeController"
+	    })
+		.state("view", {
+		        url: "/view/:id",
+		        templateUrl: "app/components/viewEmployee/partials/view-employee.html",
+		        controller: "ViewEmployeeController"
+		    });
+});

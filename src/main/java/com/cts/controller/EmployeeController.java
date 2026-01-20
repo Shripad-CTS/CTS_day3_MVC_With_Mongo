@@ -40,9 +40,32 @@ public class EmployeeController {
 	
 	Logger log = LoggerFactory.getLogger(EmployeeController.class); 
 	
-	 @GetMapping("/hello")
-	    public List<Employee> hello() {
+	 @GetMapping("/getAllEmployee")
+	    public List<Employee> AllEmployee() {
+		 
 	        return employeeService.getAllEmployee();
 	    }
+	 
+	 @PostMapping("/addEmployee")
+	 public Employee addEmployee(@Valid @RequestBody Employee employee) {
+		return employeeService.saveEmployee(employee);
+		 
+	 }
+	 
+	 @DeleteMapping("/deleteEmployee/{id}")
+	 public void deleteEmployee(@PathVariable String id) {
+		 employeeService.deleteEmployee(id);
+	 }
+	 
+	 @PutMapping("/updateEmployee/{id}")
+		 public Employee updateEmployee(@Valid @RequestBody Employee employee,@PathVariable String id) {
+		 return employeeService.updateEmployee(id, employee);
+	 }
+	 
+	 @GetMapping("/getEmployee/{id}")
+	 public Employee getEmployee(@PathVariable String id) {
+		 return employeeService.getEmployee(id);
+	 }
+	 
 	
 }

@@ -1,0 +1,58 @@
+<div class="max-w-3xl mx-auto p-6">
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+        View Employee
+    </h2>
+
+    <div class="overflow-hidden border border-gray-300 rounded-lg shadow">
+        <table class="w-full">
+            <tbody class="divide-y divide-gray-200">
+                <tr>
+                    <th class="th">Name</th>
+                    <td class="td">{{employee.name}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Job Title</th>
+                    <td class="td">{{employee.jobTitle}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Department</th>
+                    <td class="td">{{employee.department}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Role</th>
+                    <td class="td">{{employee.role}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Salary</th>
+                    <td class="td">{{employee.salary}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Gender</th>
+                    <td class="td">{{employee.gender}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Email</th>
+                    <td class="td">{{employee.email}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Address</th>
+                    <td class="td">{{employee.address}}</td>
+                </tr>
+                <tr>
+                    <th class="th">Mobile No</th>
+                    <td class="td">{{employee.mobileNo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-6">
+        <button
+            ng-click="goBack()"
+            class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">
+            Back
+        </button>
+    </div>
+
+</div>

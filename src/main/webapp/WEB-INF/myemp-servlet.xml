@@ -19,7 +19,7 @@
 
 <mvc:annotation-driven/>
 
-<mvc:resources mapping="/app/**" location="/META-INF/resources/app/" />
+<mvc:resources mapping="/app/**" location="/META-INF/resources/app/" cache-period="0"/>
 
 
 <!--     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
