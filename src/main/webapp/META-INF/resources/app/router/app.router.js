@@ -1,6 +1,6 @@
 angular.module("myApp").config(function($stateProvider, $urlRouterProvider){
 
-	$urlRouterProvider.otherwise("/hello");
+	$urlRouterProvider.otherwise("/login");
   $stateProvider
     .state("hello", {
         url: "/hello",
@@ -16,5 +16,14 @@ angular.module("myApp").config(function($stateProvider, $urlRouterProvider){
 		        url: "/view/:id",
 		        templateUrl: "app/components/viewEmployee/partials/view-employee.html",
 		        controller: "ViewEmployeeController"
-		    });
+		    }).state("update",{
+				url:"/update/:id",
+				templateUrl:"app/components/addEmployee/partials/add-employee.html",
+				controller:"AddEmployeeController"
+				
+			}).state("login",{
+				url:"/login",
+				templateUrl:"app/components/login/partials/login.html",
+				controller:"LoginController"
+			});
 });

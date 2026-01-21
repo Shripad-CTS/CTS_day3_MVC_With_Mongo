@@ -16,6 +16,7 @@
     <script src="app/components/home/home.module.js"></script>
     <script src="app/components/addEmployee/addemployee.module.js"></script>
     <script src="app/components/viewEmployee/viewemployee.module.js"></script>
+    <script src="app/components/login/login.module.js"></script>
 
     <!-- Core App -->
     <script src="app/app.js"></script>
@@ -23,12 +24,15 @@
 
     <!-- Services -->
     <script src="app/services/employee.service.js"></script>
+    <script src="app/services/auth.service.js"></script>
 
     <!-- Controllers -->
+        <script src="app/components/login/controller/LoginController.js"></script>
+    
     <script src="app/components/home/controller/HomeController.js"></script>
     <script src="app/components/addEmployee/controller/AddEmployeeController.js"></script>
     <script src="app/components/viewEmployee/controller/ViewEmployeeController.js"></script>
-    
+
     <style>
   .label {
     @apply block text-sm font-semibold text-gray-700 mb-1;
@@ -45,13 +49,19 @@
     <nav class="flex gap-4 mb-4">
         <a ui-sref="hello"
            class="px-4 py-2 bg-blue-500 text-white rounded">
-           Hello
+          Home
         </a>
 
         <a ui-sref="add"
            class="px-4 py-2 bg-green-500 text-white rounded">
            Add
         </a>
+          <a ui-sref="login"
+           class="px-4 py-2 bg-green-500 text-white rounded">
+           login
+        </a>
+        
+ 
     </nav>
 
     <hr class="my-4">

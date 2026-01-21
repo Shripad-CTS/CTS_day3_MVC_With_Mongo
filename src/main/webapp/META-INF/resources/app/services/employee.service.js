@@ -20,4 +20,8 @@ angular.module("myApp").service("employeeService",function($http){
 		return $http.delete(baseUrl+"/deleteEmployee/"+id)
 	}
 	
+	this.search=function(params){
+		return $http.get(baseUrl+"/searchEmployee",{params:params},{  withCredentials: true })
+	}
+	
 });

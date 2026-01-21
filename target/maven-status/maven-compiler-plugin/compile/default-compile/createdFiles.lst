@@ -4,4 +4,7 @@ com/cts/model/Employee.class
 com/cts/controller/EmployeeController.class
 com/cts/config/MongoConfig.class
 com/cts/repository/EmployeeRepository.class
+com/cts/controller/AuthController.class
+com/cts/service/CustomUserDetailsService.class
+com/cts/config/SecurityConfig.class
 com/cts/exception/GlobalExceptionHandler.class

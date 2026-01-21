@@ -12,6 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cts.exception.EmployeeNotFoundException;
@@ -26,6 +28,10 @@ public class EmployeeService {
 
 	@Autowired
 	private MongoTemplate mongoTemplate;
+	
+	@Autowired
+    public  PasswordEncoder passwordEncoder;
+
 
 	Logger log = LoggerFactory.getLogger(EmployeeService.class);
 
@@ -38,9 +44,16 @@ public class EmployeeService {
 	public Employee saveEmployee(Employee employee) {
 		// TODO Auto-generated method stub
 		log.debug("Trying to save Employee");
+		
+		employee.setPassword(passwordEncoder.encode("password"));
 		return employeeRepository.save(employee);
 
 	}
+	
+	 public Employee findByEmail(String email) {
+	        return employeeRepository.findByEmail(email)
+	                .orElseThrow(() -> new RuntimeException("Invalid email"));
+	    }
 
 	public Employee getEmployee(String id) {
 		log.debug("Trying to get Employee with ID" + id);

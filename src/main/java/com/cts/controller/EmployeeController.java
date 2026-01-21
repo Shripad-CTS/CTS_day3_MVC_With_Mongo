@@ -48,6 +48,8 @@ public class EmployeeController {
 	 
 	 @PostMapping("/addEmployee")
 	 public Employee addEmployee(@Valid @RequestBody Employee employee) {
+		 
+		 
 		return employeeService.saveEmployee(employee);
 		 
 	 }
@@ -67,5 +69,20 @@ public class EmployeeController {
 		 return employeeService.getEmployee(id);
 	 }
 	 
+	 @GetMapping("/searchEmployee")
+	 public Page<Employee> searchEmployee(    @RequestParam(defaultValue = "0") int page,
+		        @RequestParam(defaultValue = "10") int size,
+		        @RequestParam(defaultValue = "name") String sortBy,
+		        @RequestParam(defaultValue = "asc") String sortDir,
+		        @RequestParam(required = false) String search,
+		        @RequestParam(required = false) String department,
+		        @RequestParam(required = false) String role){
+		Sort sort= sortDir.equals("asc")?
+				Sort.by(sortBy).ascending():
+					Sort.by(sortBy).descending();
+		Pageable pageable= PageRequest.of(page, size, sort);
+		return employeeService.searchEmployees(search, department, role, pageable);
+		
+	 }
 	
 }

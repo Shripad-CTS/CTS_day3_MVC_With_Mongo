@@ -1,0 +1,17 @@
+<div ng-controller="LoginController">
+
+    <h2>Login</h2>
+
+    <form ng-submit="login()">
+        <input type="email" ng-model="loginData.email" placeholder="Email" required />
+        <br><br>
+        <input type="password" ng-model="loginData.password" placeholder="Password" required />
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <p style="color:red" ng-if="error">{{error}}</p>
+
+<button ng-click="logout()">Logout</button>
+
+</div>

@@ -17,15 +17,16 @@
     <!-- Enable @Controller, @RequestMapping -->
     <mvc:annotation-driven/>
 
+<mvc:annotation-driven/>
+
+<mvc:resources mapping="/app/**" location="/META-INF/resources/app/" cache-period="0"/>
 
 
-
-    <!-- View Resolver -->
 <!--     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
-    </bean> -->
-    
+    </bean>
+     -->
 
 </beans>
 																			

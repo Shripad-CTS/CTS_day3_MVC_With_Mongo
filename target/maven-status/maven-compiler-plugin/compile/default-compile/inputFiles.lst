@@ -1,4 +1,3 @@
-/home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/config/CorsConfig.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/config/MongoConfig.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/config/SecurityConfig.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/controller/AuthController.java
@@ -6,8 +5,6 @@
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/exception/EmployeeNotFoundException.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/exception/GlobalExceptionHandler.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/model/Employee.java
-/home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/model/UserAccount.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/repository/EmployeeRepository.java
-/home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/repository/UserAccountRepository.java
+/home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/service/CustomUserDetailsService.java
 /home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/service/EmployeeService.java
-/home/cts/spring-workspace/Springmvc_Mongo/src/main/java/com/cts/service/MongoUserDetailsService.java
