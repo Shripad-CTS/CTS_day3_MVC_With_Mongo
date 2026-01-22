@@ -17,10 +17,11 @@
     <script src="app/components/addEmployee/addemployee.module.js"></script>
     <script src="app/components/viewEmployee/viewemployee.module.js"></script>
     <script src="app/components/login/login.module.js"></script>
+    <script src="app/components/profile/profile.module.js"></script>
 
     <!-- Core App -->
     <script src="app/app.js"></script>
-    <script src="app/router/app.router.js"></script>
+<!--     <script src="app/router/app.router.js"></script> -->
 
     <!-- Services -->
     <script src="app/services/employee.service.js"></script>
@@ -28,10 +29,12 @@
 
     <!-- Controllers -->
         <script src="app/components/login/controller/LoginController.js"></script>
-    
+    <script src="app/components/home/controller/NavController.js"></script>
     <script src="app/components/home/controller/HomeController.js"></script>
     <script src="app/components/addEmployee/controller/AddEmployeeController.js"></script>
     <script src="app/components/viewEmployee/controller/ViewEmployeeController.js"></script>
+    <script src="app/components/profile/controller/ProfileController.js"></script>
+    <link rel="stylesheet" href="assets/css/login.css">
 
     <style>
   .label {
@@ -46,23 +49,52 @@
 
 <body class="bg-gray-100 p-6">
 
-    <nav class="flex gap-4 mb-4">
-        <a ui-sref="hello"
-           class="px-4 py-2 bg-blue-500 text-white rounded">
-          Home
+<nav class="flex items-center justify-between mb-6 px-6 py-3 bg-white shadow rounded-lg"
+     ng-controller="NavController">
+
+    <!-- Left links -->
+    <div class="flex gap-3">
+        <a ui-sref="hello" 
+           ng-if="isAdmin()"
+           class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded
+                  hover:bg-blue-700 transition">
+            Home
         </a>
 
         <a ui-sref="add"
-           class="px-4 py-2 bg-green-500 text-white rounded">
-           Add
+           ng-if="isAdmin()" 
+           class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded
+                  hover:bg-green-700 transition">
+            Add Employee
         </a>
-          <a ui-sref="login"
-           class="px-4 py-2 bg-green-500 text-white rounded">
-           login
+    </div>
+
+    <!-- Right actions -->
+    <div class="flex gap-3">
+        <a ui-sref="login" 
+           ng-if="!isLoggedIn()"
+           class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded
+                  hover:bg-indigo-700 transition">
+            Login
         </a>
-        
- 
-    </nav>
+		
+		   <a ui-sref="profile"
+           ng-if="isLoggedIn()" 
+           class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded
+                  hover:bg-green-700 transition">
+            profile
+        </a>
+		
+        <button ng-click="logout()"
+                ng-if="isLoggedIn()"
+                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded
+                       hover:bg-red-700 transition">
+            Logout
+        </button>
+    </div>
+
+</nav>
+
 
     <hr class="my-4">
 

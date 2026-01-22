@@ -46,6 +46,7 @@ public class EmployeeService {
 		log.debug("Trying to save Employee");
 		
 		employee.setPassword(passwordEncoder.encode("password"));
+		employee.setFirstLogin(true);
 		return employeeRepository.save(employee);
 
 	}

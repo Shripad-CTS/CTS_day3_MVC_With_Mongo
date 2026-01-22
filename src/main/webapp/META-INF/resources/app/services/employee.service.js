@@ -1,5 +1,5 @@
 angular.module("myApp").service("employeeService",function($http){
-	var baseUrl="http://localhost:8080/Springmvc_Mongo/api";
+	var baseUrl="http://localhost:8080/Springmvc_Mongo/api/admin";
 	
 	this.getAll=function(){
 		return $http.get(baseUrl+"/getAllEmployee");

@@ -9,7 +9,7 @@ angular.module("loginModule").controller("LoginController", function ($scope,Aut
         AuthService.login($scope.loginData)
             .then(function () {
                 // Login success
-               $state.go("hello");
+               $state.go("profile");
 			   console.log("login sucess")
             })
             .catch(function (err) {

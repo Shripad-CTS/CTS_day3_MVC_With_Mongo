@@ -1,0 +1,10 @@
+angular.module("profileModule",["ui.router"])
+.constant("PROFILE_PATH","app/components/profile")
+.config(function($stateProvider,PROFILE_PATH){
+	$stateProvider
+	.state("profile",{
+		url:"/profile",
+		templateUrl:PROFILE_PATH+"/partials/profile.html",
+		controller:"ProfileController"
+	})
+});

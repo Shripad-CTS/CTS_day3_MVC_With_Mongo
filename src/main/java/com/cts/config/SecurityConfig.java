@@ -1,3 +1,4 @@
+
 package com.cts.config;
 
 import javax.servlet.http.HttpServletResponse;
@@ -46,12 +47,22 @@ public class SecurityConfig {
                     new AntPathRequestMatcher("/**/*.css")
                 ).permitAll()
 
-                // ✅ LOGIN
+                //  LOGIN
                 .requestMatchers(
                     new AntPathRequestMatcher("/auth/**")
                 ).permitAll()
+                
+                //admin role
+                .requestMatchers(
+                        new AntPathRequestMatcher("/api/admin/**")
+                    ).hasRole("ADMIN")
 
-                // 🔐 BACKEND API
+                    //  USER + ADMIN APIs
+                    .requestMatchers(
+                        new AntPathRequestMatcher("/api/user/**")
+                    ).hasAnyRole("USER", "ADMIN")
+
+                //  BACKEND API
                 .requestMatchers(
                     new AntPathRequestMatcher("/api/**")
                 ).authenticated()
@@ -59,7 +70,7 @@ public class SecurityConfig {
                 .anyRequest().denyAll()
             )
 
-            // 🔐 SESSION LOGIN
+            //  SESSION LOGIN
             .formLogin(form -> form
                 .loginProcessingUrl("/auth/login")
                 .usernameParameter("email")

@@ -1,1 +1,15 @@
-angular.module("addEmployeeModule",[]);
+angular.module("addEmployeeModule",["ui.router"])
+.constant("ADDEMPLOYEE_PATH","app/components/addEmployee")
+.config(function($stateProvider,ADDEMPLOYEE_PATH){
+	$stateProvider
+	.state("add",{
+		url:"/add",
+		templateUrl:ADDEMPLOYEE_PATH+"/partials/add-employee.html",
+		controller:"AddEmployeeController"
+	}).state("update",{
+		url:"/update/:id",
+		templateUrl:ADDEMPLOYEE_PATH+"/partials/add-employee.html",
+		controller:"AddEmployeeController"
+	})
+})
+;

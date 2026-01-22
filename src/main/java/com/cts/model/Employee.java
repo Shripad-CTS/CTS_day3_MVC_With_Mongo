@@ -25,6 +25,33 @@ public class Employee {
 	@NotBlank(message = "Department is required")
 	private String department;
 
+	public Employee(String id, @NotBlank(message = "Name is required") String name, String password,
+			@NotBlank(message = "JobTitle is required") String jobTitle,
+			@NotBlank(message = "Department is required") String department, boolean firstLogin,
+			@NotBlank(message = "Role is required") String role,
+			@NotNull(message = "salary is required") @Positive(message = "salary should be greater then 0") Double salary,
+			@NotBlank(message = "Gender is required") String gender,
+			@NotBlank(message = "Email is required") @Email(message = "Invalid format of email") String email,
+			@NotBlank(message = "Address is required") String address,
+			@NotBlank(message = "Mobile Number is required") String mobileNo) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.jobTitle = jobTitle;
+		this.department = department;
+		this.firstLogin = firstLogin;
+		this.role = role;
+		this.salary = salary;
+		this.gender = gender;
+		this.email = email;
+		this.address = address;
+		this.mobileNo = mobileNo;
+	}
+
+
+	private boolean firstLogin = true;
+
 	public Employee(@NotBlank(message = "Name is required") String name, String password,
 			@NotBlank(message = "Email is required") @Email(message = "Invalid format of email") String email) {
 		super();
@@ -32,6 +59,15 @@ public class Employee {
 		this.password = password;
 		this.email = email;
 	}
+
+	public boolean isFirstLogin() {
+		return firstLogin;
+	}
+
+	public void setFirstLogin(boolean firstLogin) {
+		this.firstLogin = firstLogin;
+	}
+
 
 	@NotBlank(message = "Role is required")
 	private String role;

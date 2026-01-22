@@ -1,1 +1,10 @@
-angular.module("viewEmployeeModule",[]);
+angular.module("viewEmployeeModule",["ui.router"])
+.constant("VIEWEMPLOYEE_PATH","app/components/viewEmployee")
+.config(function($stateProvider,VIEWEMPLOYEE_PATH){
+	$stateProvider
+	.state("view",{
+		url:"/view/:id",
+		templateUrl:VIEWEMPLOYEE_PATH+"/partials/view-employee.html",
+		controller:"ViewEmployeeController"
+	})
+});

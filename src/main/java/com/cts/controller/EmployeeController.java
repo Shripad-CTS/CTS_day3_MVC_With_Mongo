@@ -40,13 +40,13 @@ public class EmployeeController {
 	
 	Logger log = LoggerFactory.getLogger(EmployeeController.class); 
 	
-	 @GetMapping("/getAllEmployee")
+	 @GetMapping("/admin/getAllEmployee")
 	    public List<Employee> AllEmployee() {
 		 
 	        return employeeService.getAllEmployee();
 	    }
 	 
-	 @PostMapping("/addEmployee")
+	 @PostMapping("/admin/addEmployee")
 	 public Employee addEmployee(@Valid @RequestBody Employee employee) {
 		 
 		 
@@ -54,22 +54,22 @@ public class EmployeeController {
 		 
 	 }
 	 
-	 @DeleteMapping("/deleteEmployee/{id}")
+	 @DeleteMapping("/admin/deleteEmployee/{id}")
 	 public void deleteEmployee(@PathVariable String id) {
 		 employeeService.deleteEmployee(id);
 	 }
 	 
-	 @PutMapping("/updateEmployee/{id}")
+	 @PutMapping("/admin/updateEmployee/{id}")
 		 public Employee updateEmployee(@Valid @RequestBody Employee employee,@PathVariable String id) {
 		 return employeeService.updateEmployee(id, employee);
 	 }
 	 
-	 @GetMapping("/getEmployee/{id}")
+	 @GetMapping("/admin/getEmployee/{id}")
 	 public Employee getEmployee(@PathVariable String id) {
 		 return employeeService.getEmployee(id);
 	 }
 	 
-	 @GetMapping("/searchEmployee")
+	 @GetMapping("/admin/searchEmployee")
 	 public Page<Employee> searchEmployee(    @RequestParam(defaultValue = "0") int page,
 		        @RequestParam(defaultValue = "10") int size,
 		        @RequestParam(defaultValue = "name") String sortBy,
@@ -84,5 +84,6 @@ public class EmployeeController {
 		return employeeService.searchEmployees(search, department, role, pageable);
 		
 	 }
+	 
 	
 }
