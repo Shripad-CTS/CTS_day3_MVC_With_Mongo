@@ -29,6 +29,9 @@ import com.cts.service.CustomUserDetailsService;
 @EnableWebSecurity
 public class SecurityConfig {
 
+	@Autowired 
+	private JwtAuthFilter jwtAuthFilter;
+	
 	@Autowired
 	private EmployeeRepository employeeRepository;
     @Bean
@@ -74,18 +77,9 @@ public class SecurityConfig {
             )
 
             //  SESSION LOGIN
-            .formLogin(form -> form
-                .loginProcessingUrl("/auth/login")
-                .usernameParameter("email")
-                .passwordParameter("password")
-                .successHandler((req, res, auth) -> res.setStatus(200))
-                .failureHandler((req, res, ex) -> res.sendError(401))
-            )
-            .logout(logout -> logout
-                .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout"))
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-            );
+            .addFilterBefore(jwtAuthFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class)
+            .sessionManagement(sm -> sm.sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS));
+
         return http.build();
     }
 

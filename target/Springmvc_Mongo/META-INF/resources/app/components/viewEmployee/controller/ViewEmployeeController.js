@@ -5,6 +5,8 @@ function ViewEmployeeController($scope, $stateParams, $state, employeeService){
 	employeeService.getById(id).then(function(res){
 		$scope.employee=res.data;	
 	});
+	
+
 
 	$scope.goBack = function () {
 	    $state.go("hello");

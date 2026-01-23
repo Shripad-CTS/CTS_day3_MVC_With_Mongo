@@ -9,9 +9,8 @@ function NavController($scope,$state,AuthService){
 
 	
 	$scope.logout=function(){
-		AuthService.logout().then(function(){
-		   $state.go("login");
-		})
+		AuthService.logout();
+		 $state.go("login");
 	}
 	if (AuthService.isLoggedIn()) {
 	    AuthService.getProfile();

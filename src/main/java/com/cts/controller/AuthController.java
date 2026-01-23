@@ -14,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import com.cts.config.JwtUtil;
 import com.cts.model.Employee;
 import com.cts.repository.EmployeeRepository;
 import com.cts.service.EmployeeService;
@@ -29,6 +30,9 @@ private EmployeeRepository employeeRepository;
 
 @Autowired
 private PasswordEncoder passwordEncoder;
+
+@Autowired
+private JwtUtil jwtUtil;
 
 @PostMapping("/change-password")
 public ResponseEntity<?> changePassword(
@@ -89,5 +93,27 @@ public ResponseEntity<?> changePassword(
 
         return ResponseEntity.ok(employee);
     }
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> payload) {
+        String email = payload.get("email");
+        String password = payload.get("password");
+
+        Employee employee = employeeRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!passwordEncoder.matches(password, employee.getPassword())) {
+            return ResponseEntity.status(401).body("Invalid credentials");
+        }
+
+        String token = jwtUtil.generateToken(employee.getEmail(), "ROLE_" + employee.getRole().toUpperCase());
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("role", employee.getRole());
+
+        return ResponseEntity.ok(response);
+    }
+
 
 }

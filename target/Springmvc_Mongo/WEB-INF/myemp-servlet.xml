@@ -21,6 +21,8 @@
 
 <mvc:resources mapping="/app/**" location="/META-INF/resources/app/" cache-period="0"/>
 
+<mvc:resources mapping="/assets/**" location="/META-INF/resources/assets/" />
+
 
 <!--     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

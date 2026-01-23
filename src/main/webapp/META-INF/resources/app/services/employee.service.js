@@ -21,7 +21,7 @@ angular.module("myApp").service("employeeService",function($http){
 	}
 	
 	this.search=function(params){
-		return $http.get(baseUrl+"/admin/searchEmployee",{params:params},{  withCredentials: true })
+		return $http.get(baseUrl+"/admin/searchEmployee",{params:params})
 	}
 	
 	this.updateUserDetails = function (employee) {
