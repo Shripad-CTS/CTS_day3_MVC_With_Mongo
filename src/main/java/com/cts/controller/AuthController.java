@@ -50,8 +50,12 @@ public ResponseEntity<?> changePassword(
     employee.setFirstLogin(false);
 
     employeeRepository.save(employee);
+    
+    Map<String, Object> response = new HashMap<>();
+    response.put("success", true);
+    response.put("message", "Password changed");
 
-    return ResponseEntity.ok("Password changed");
+    return ResponseEntity.ok(response);
 }
 
 

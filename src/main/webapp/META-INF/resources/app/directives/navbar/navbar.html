@@ -1,0 +1,47 @@
+<nav class="flex items-center justify-between mb-6 px-6 py-3 bg-white shadow rounded-lg">
+    <div class="flex gap-3">
+       <a ui-sref="firstPage" 
+
+           class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded
+                  hover:bg-blue-700 transition">
+           Home
+        </a>
+    
+        <a ui-sref="hello" 
+           ng-if="isAdmin()"
+           class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded
+                  hover:bg-blue-700 transition">
+            Employee Actions
+        </a>
+
+        <a ui-sref="add"
+           ng-if="isAdmin()" 
+           class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded
+                  hover:bg-green-700 transition">
+            Add Employee
+        </a>
+    </div>
+    <div class="flex gap-3">
+        <a ui-sref="login" 
+           ng-if="!isLoggedIn()"
+           class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded
+                  hover:bg-indigo-700 transition">
+            Login
+        </a>
+		
+		   <a ui-sref="profile"
+           ng-if="isLoggedIn()" 
+           class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded
+                  hover:bg-green-700 transition">
+            profile
+        </a>
+		
+        <button ng-click="logout()"
+                ng-if="isLoggedIn()"
+                class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded
+                       hover:bg-red-700 transition">
+            Logout
+        </button>
+    </div>
+
+</nav>

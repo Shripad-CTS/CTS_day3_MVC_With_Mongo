@@ -15,6 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cts.exception.EmployeeNotFoundException;
 import com.cts.model.Employee;
+import com.cts.repository.EmployeeRepository;
 import com.cts.service.EmployeeService;
 
 
@@ -37,6 +39,9 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 	
 	Logger log = LoggerFactory.getLogger(EmployeeController.class); 
 	
@@ -84,6 +89,20 @@ public class EmployeeController {
 		return employeeService.searchEmployees(search, department, role, pageable);
 		
 	 }
+	 
+	 @PutMapping("/user/update-details")
+	 public Employee updateUserDetails(
+	         @RequestBody Employee employee,
+	         Authentication authentication) {
+
+	     String email = authentication.getName();
+
+	     Employee existing = employeeRepository.findByEmail(email)
+	             .orElseThrow(() -> new RuntimeException("User not found"));
+
+	     return employeeService.updateUserSelf(existing.getId(), employee);
+	 }
+
 	 
 	
 }

@@ -130,4 +130,20 @@ public class EmployeeService {
 		return employeeRepository.save(updateEmp);
 	}
 
+	public Employee updateUserSelf(String id, Employee employee) {
+
+	    Employee updateEmp = employeeRepository.findById(id)
+	            .orElseThrow(() -> new EmployeeNotFoundException("Employee not found"));
+
+	    updateEmp.setName(employee.getName());
+	    updateEmp.setDepartment(employee.getDepartment());
+	    updateEmp.setAddress(employee.getAddress());
+	    updateEmp.setJobTitle(employee.getJobTitle());
+	    updateEmp.setMobileNo(employee.getMobileNo());
+
+
+
+	    return employeeRepository.save(updateEmp);
+	}
+
 }

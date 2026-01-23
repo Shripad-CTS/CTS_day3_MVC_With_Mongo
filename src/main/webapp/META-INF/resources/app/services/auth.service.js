@@ -57,5 +57,10 @@ angular.module("myApp")
 	            role = null;
 	        });
 	};
+	
+	this.changePassword = function (data) {
+	    return $http.post("/Springmvc_Mongo/auth/change-password", data);
+	};
+
 
 });

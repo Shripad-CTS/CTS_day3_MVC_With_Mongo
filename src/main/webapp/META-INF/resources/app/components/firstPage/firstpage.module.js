@@ -1,0 +1,10 @@
+angular.module("firstPageModule",["ui.router"])
+.constant("FIRSTPAGE_PATH","app/components/firstPage")
+.config(function($stateProvider,FIRSTPAGE_PATH){
+	$stateProvider
+	.state("firstPage",{
+		url:"/landingpage",
+		templateUrl:FIRSTPAGE_PATH+"/partials/first-page.html",
+		controller:"FirstPageController"
+	})
+})

@@ -1,0 +1,209 @@
+<body class="bg-gray-50">
+    <!-- Navigation -->
+   
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl font-bold text-gray-900 mb-6 gradient-text">
+                Welcome to the Employee Management System
+            </h1>
+            <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                This platform is built to simplify and streamline employee management within
+                the organization. It ensures secure access, accurate data handling, and a
+                smooth user experience for both employees and administrators.
+            </p>
+        </div>
+
+        <!-- What you can do section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">What you can do here</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">View & Manage Profiles</h3>
+                    <p class="text-gray-600">Access and manage employee profiles with all relevant personal and professional information.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Maintain Information</h3>
+                    <p class="text-gray-600">Keep personal and professional information up-to-date with an intuitive interface.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Secure Authentication</h3>
+                    <p class="text-gray-600">Ensure secure access using role-based authentication with Spring Security.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover">
+                    <div class="w-14 h-14 gradient-bg rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-key text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Password Reset</h3>
+                    <p class="text-gray-600">Allow first-time users to securely reset their default password during initial login.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- For Employees Section -->
+        <div class="mb-16">
+            <div class="flex flex-col lg:flex-row items-center mb-12">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">For Employees</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-600 text-lg">
+                            Employees can log in using their registered email and password to access
+                            their personal profile. From there, you can view your details such as
+                            department, role, contact information, and salary information (if permitted).
+                        </p>
+                        <p class="text-gray-600 text-lg">
+                            For security reasons, employees logging in for the first time are required
+                            to change their default password before continuing.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium inline-flex items-center transition duration-300 btn-glow">
+                            <i class="fas fa-user-circle mr-2"></i> Employee Login
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Employee Access</h4>
+                                <p class="text-gray-500 text-sm">View your personal information</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">View personal profile and details</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Update contact information</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Access department and role information</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">View salary information (if permitted)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- For Administrators Section -->
+        <div class="mb-16">
+            <div class="flex flex-col lg:flex-row-reverse items-center mb-12">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">For Administrators</h2>
+                    <div class="space-y-4">
+                        <p class="text-gray-600 text-lg">
+                            Administrators have extended access to the system. This includes the ability
+                            to add new employees, update employee records, and view the complete list
+                            of employees across departments.
+                        </p>
+                        <p class="text-gray-600 text-lg">
+                            Role-based restrictions ensure that sensitive operations are only accessible
+                            to authorized users.
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#" class="gradient-bg text-white px-6 py-3 rounded-lg font-medium inline-flex items-center transition duration-300 btn-glow">
+                            <i class="fas fa-user-shield mr-2"></i> Admin Login
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 shadow-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-user-shield text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Admin Privileges</h4>
+                                <p class="text-gray-500 text-sm">Full system access</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-plus-circle text-blue-500 mr-3"></i>
+                                <span class="text-gray-700">Add new employees to the system</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-edit text-blue-500 mr-3"></i>
+                                <span class="text-gray-700">Update employee records and information</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-list text-blue-500 mr-3"></i>
+                                <span class="text-gray-700">View complete employee list across departments</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-user-tag text-blue-500 mr-3"></i>
+                                <span class="text-gray-700">Manage role-based permissions and access</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security & Access Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Security & Access</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-lock text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Secure Authentication</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        This application uses session-based authentication and Spring Security
+                        to protect user data. Unauthorized access is restricted, and all actions
+                        are validated on the server side.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-sign-out-alt text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Safe Usage Practices</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Please ensure you log out after completing your work, especially when using
+                        a shared computer.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+   
+
+   

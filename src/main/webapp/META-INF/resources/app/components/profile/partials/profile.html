@@ -10,5 +10,12 @@
         <p><b>Job Title:</b> {{employee.jobTitle}}</p>
         <p><b>Mobile:</b> {{employee.mobileNo}}</p>
     </div>
+            <div class="mt-6">
+        <button
+            ng-click="updateDetails(employee.id)"
+            class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">
+            update Details
+        </button>
+    </div>
 
 </div>

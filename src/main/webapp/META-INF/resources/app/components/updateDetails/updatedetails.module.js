@@ -1,0 +1,10 @@
+angular.module("updateDetailsModule",["ui.router"])
+.constant("UPDATEDETAILS_PATH","app/components/updateDetails")
+.config(function($stateProvider,UPDATEDETAILS_PATH){
+	$stateProvider
+	.state("updateDetails",{
+		url:"/update-details/:id",
+		templateUrl:UPDATEDETAILS_PATH+"/partials/update-details.html",
+		controller:"UpdateDetailsController"
+	})
+})

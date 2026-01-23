@@ -22,21 +22,24 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import com.cts.repository.EmployeeRepository;
 import com.cts.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+	@Autowired
+	private EmployeeRepository employeeRepository;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
             .csrf(csrf -> csrf.disable())
-
+           // .addFilterAfter(new FirstLoginFilter(employeeRepository),  org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class)
             .authorizeHttpRequests(auth -> auth
 
-                // ✅ FRONTEND (NO LOGIN)
+                //  FRONTEND (NO LOGIN)
                 .requestMatchers(
                     new AntPathRequestMatcher("/"),
                     new AntPathRequestMatcher("/index.jsp"),
@@ -78,13 +81,11 @@ public class SecurityConfig {
                 .successHandler((req, res, auth) -> res.setStatus(200))
                 .failureHandler((req, res, ex) -> res.sendError(401))
             )
-
             .logout(logout -> logout
                 .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout"))
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
             );
-
         return http.build();
     }
 

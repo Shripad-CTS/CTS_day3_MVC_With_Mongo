@@ -1,4 +1,4 @@
-angular.module("loginModule").controller("LoginController", function ($scope,AuthService,$state) {
+angular.module("loginModule").controller("LoginController", function ($scope, AuthService,$state) {
 
     $scope.loginData = {
         email: "",
@@ -8,9 +8,13 @@ angular.module("loginModule").controller("LoginController", function ($scope,Aut
     $scope.login = function () {
         AuthService.login($scope.loginData)
             .then(function () {
-                // Login success
-               $state.go("profile");
-			   console.log("login sucess")
+				AuthService.getProfile().then(function (res) {
+				      if (res.firstLogin) {
+				          $state.go("changePassword");
+				      } else {
+				          $state.go("profile");
+				      }
+				  });
             })
             .catch(function (err) {
                 $scope.error = "Invalid email or password";

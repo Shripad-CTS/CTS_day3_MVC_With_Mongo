@@ -1,0 +1,10 @@
+angular.module("changePasswordModule",["ui.router"])
+.constant("CHANGEPASSWORD_PATH","app/components/changePassword")
+.config(function($stateProvider,CHANGEPASSWORD_PATH){
+	$stateProvider
+	.state("changePassword",{
+		url:"/change-password",
+		templateUrl:CHANGEPASSWORD_PATH+"/partials/change-password.html",
+		controller:"ChangePasswordController"
+	})
+});

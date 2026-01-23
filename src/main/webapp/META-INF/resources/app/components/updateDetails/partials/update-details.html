@@ -1,0 +1,56 @@
+<div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+
+    <h2 class="text-2xl font-bold mb-6">Update My Details</h2>
+
+    <form ng-submit="updateDetails()" class="space-y-4">
+
+        <div>
+            <label class="block font-semibold mb-1">Name</label>
+            <input type="text"
+                   ng-model="employee.name"
+                   class="w-full border px-3 py-2 rounded">
+        </div>
+
+        <div>
+            <label class="block font-semibold mb-1">Department</label>
+            <input type="text"
+                   ng-model="employee.department"
+                   class="w-full border px-3 py-2 rounded">
+        </div>
+
+        <div>
+            <label class="block font-semibold mb-1">Job Title</label>
+            <input type="text"
+                   ng-model="employee.jobTitle"
+                   class="w-full border px-3 py-2 rounded">
+        </div>
+
+        <div>
+            <label class="block font-semibold mb-1">Mobile Number</label>
+            <input type="text"
+                   ng-model="employee.mobileNo"
+                   class="w-full border px-3 py-2 rounded">
+        </div>
+        <div>
+            <label class="block font-semibold mb-1">Address</label>
+            <input type="text"
+                   ng-model="employee.address"
+                   class="w-full border px-3 py-2 rounded">
+        </div>
+
+        <div class="flex gap-3 pt-4">
+            <button type="submit"
+                    class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                Save Changes
+            </button>
+
+            <button type="button"
+                    ng-click="goBack()"
+                    class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                Cancel
+            </button>
+        </div>
+
+    </form>
+
+</div>
